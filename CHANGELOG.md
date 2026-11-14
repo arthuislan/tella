@@ -2,6 +2,12 @@
 
 Each entry is written in English (EN), Português (PT) and Español (ES).
 
+## [1.3] — 2026-11-14
+
+- **EN:** New **About Tella** window with version, developer, website and license. Tella now checks GitHub once a day for new versions and shows **Update Available** in the menu (can be turned off with **Check for Updates Automatically**). New **Check for Updates…** option. The DMG installer now shows the Applications shortcut as "Applications" for everyone.
+- **PT:** Nova janela **Sobre o Tella**, com versão, desenvolvedor, site e licença. O Tella agora confere no GitHub uma vez por dia se há versão nova e mostra **Atualização disponível** no menu (dá para desligar em **Procurar atualizações automaticamente**). Nova opção **Procurar atualizações…**. O instalador DMG agora mostra o atalho da pasta de aplicativos como "Applications" para todos.
+- **ES:** Nueva ventana **Acerca de Tella**, con versión, desarrollador, sitio web y licencia. Tella ahora revisa en GitHub una vez al día si hay una versión nueva y muestra **Actualización disponible** en el menú (se puede desactivar en **Buscar actualizaciones automáticamente**). Nueva opción **Buscar actualizaciones…**. El instalador DMG ahora muestra el acceso a la carpeta de aplicaciones como "Applications" para todos.
+
 ## [1.2] — 2026-11-14
 
 - **EN:** New **Permission** menu: shows whether Accessibility is allowed and helps you open settings, request the permission again or reset it. README images now have English captions.
@@ -32,4 +38,5 @@ Each entry is written in English (EN), Português (PT) and Español (ES).
 - **PT:** Ativa a janela da frente ao trocar de monitor, sem clique, e ativa a janela de trás ao minimizar.
 - **ES:** Activa la ventana del frente al cambiar de pantalla, sin clic, y activa la ventana de atrás al minimizar.
 
+[1.3]: https://github.com/arthuislan/tella/releases/tag/v1.3
 [1.2]: https://github.com/arthuislan/tella/releases/tag/v1.2

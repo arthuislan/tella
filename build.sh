@@ -41,7 +41,7 @@ case "${1:-}" in
     STAGE="$TMP/dmg"
     mkdir -p "$STAGE"
     ditto "$APP" "$STAGE/Tella.app"
-    ln -s /Applications "$STAGE/Aplicativos"
+    ln -s /Applications "$STAGE/Applications"
     rm -f Tella.dmg
     hdiutil create -volname "Tella" -srcfolder "$STAGE" -ov -format UDZO Tella.dmg >/dev/null
     echo "✅ Instalador pronto: $(pwd)/Tella.dmg"

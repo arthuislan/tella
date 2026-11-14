@@ -81,6 +81,8 @@ If you minimize the window you were using, Tella **immediately** activates the w
 
 | Option | What it does |
 |---|---|
+| **About Tella** | Shows the version, the developer, the website and the license. |
+| **Update Available: Tella x.y** | Appears only when there is a new version. Click to download it. |
 | **Enabled** | Turns Tella on or off without quitting the app. |
 | **Open at Login** | Starts Tella automatically when you log in. |
 | **Permission** | Shows whether Accessibility is allowed (✓) or missing (⚠︎) and groups the options below. |
@@ -88,6 +90,8 @@ If you minimize the window you were using, Tella **immediately** activates the w
 | ↳ **Request Permission Again** | Shows the macOS prompt again and adds Tella to the list. |
 | ↳ **Reset Permission** | Clears the old permission and asks again. Useful after updating the app. |
 | ↳ **Show Tella in Finder** | Reveals the app in Finder so you can drag it into the list if it doesn't appear. |
+| **Check for Updates…** | Checks GitHub right now for a new version. |
+| **Check for Updates Automatically** | Checks once a day (on by default). Turn it off if you prefer. |
 | **Quit Tella** | Quits the app. |
 
 ---
@@ -168,9 +172,19 @@ tccutil reset Accessibility local.tella
 
 ---
 
+## Updates
+
+Tella checks the [Releases](https://github.com/arthuislan/tella/releases) page once a day. When a new version is out, it lets you know and shows **Update Available** in the menu.
+
+To update: download the new **Tella.dmg**, open it and drag Tella into **Applications**, replacing the old one. After updating, macOS may ask you to allow Tella under **Accessibility** again — if it doesn't work right away, use **Permission → Reset Permission** in the menu.
+
+---
+
 ## Privacy
 
-Tella **does not read what you type**, records nothing and never connects to the internet. It only looks at the cursor position and the list of open windows to know which window to activate.
+Tella **does not read what you type** and records nothing. It only looks at the cursor position and the list of open windows to know which window to activate.
+
+The only time it goes online is to check the public Tella releases page on GitHub for a new version, at most once a day. Nothing about you or your Mac is sent. You can turn this off with **Check for Updates Automatically**.
 
 ---
 
@@ -184,6 +198,7 @@ tella/
 │   └── *.lproj/            # translations (36 languages)
 ├── Info.plist
 ├── build.sh                # build, install and create the DMG
+├── RELEASING.md            # how to publish a new version
 └── docs/
     ├── images/             # images used in this README
     └── src/gen.py          # script that generates the illustrations

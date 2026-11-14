@@ -81,6 +81,8 @@ Si minimizas la ventana que estabas usando, Tella activa **al instante** la vent
 
 | Opción | Qué hace |
 |---|---|
+| **Acerca de Tella** | Muestra la versión, el desarrollador, el sitio web y la licencia. |
+| **Actualización disponible: Tella x.y** | Solo aparece cuando hay una versión nueva. Haz clic para descargarla. |
 | **Activo** | Enciende o apaga Tella sin cerrar la app. |
 | **Abrir al iniciar sesión** | Abre Tella automáticamente al iniciar sesión en tu Mac. |
 | **Permiso** | Muestra si la Accesibilidad está permitida (✓) o falta (⚠︎) y agrupa las opciones de abajo. |
@@ -88,6 +90,8 @@ Si minimizas la ventana que estabas usando, Tella activa **al instante** la vent
 | ↳ **Volver a pedir permiso** | Muestra de nuevo el aviso de macOS y agrega Tella a la lista. |
 | ↳ **Restablecer permiso** | Borra el permiso anterior y lo pide de nuevo. Útil después de actualizar la app. |
 | ↳ **Mostrar Tella en el Finder** | Muestra la app en el Finder para que la arrastres a la lista si no aparece. |
+| **Buscar actualizaciones…** | Revisa ahora en GitHub si hay una versión nueva. |
+| **Buscar actualizaciones automáticamente** | Revisa una vez al día (activado por defecto). Desactívalo si prefieres. |
 | **Salir de Tella** | Cierra la app. |
 
 ---
@@ -168,9 +172,19 @@ tccutil reset Accessibility local.tella
 
 ---
 
+## Actualizaciones
+
+Tella revisa una vez al día la página de [Releases](https://github.com/arthuislan/tella/releases). Cuando sale una versión nueva, te avisa y muestra **Actualización disponible** en el menú.
+
+Para actualizar: descarga el nuevo **Tella.dmg**, ábrelo y arrastra Tella a **Aplicaciones**, reemplazando el anterior. Después de actualizar, macOS puede pedir de nuevo el permiso de **Accesibilidad**. Si no funciona de inmediato, usa **Permiso → Restablecer permiso** en el menú.
+
+---
+
 ## Privacidad
 
-Tella **no lee lo que escribes**, no graba nada y no se conecta a internet. Solo observa la posición del cursor y la lista de ventanas abiertas para saber qué ventana activar.
+Tella **no lee lo que escribes** y no graba nada. Solo observa la posición del cursor y la lista de ventanas abiertas para saber qué ventana activar.
+
+La única vez que se conecta a internet es para revisar, como máximo una vez al día, la página pública de versiones de Tella en GitHub. No se envía nada sobre ti ni sobre tu Mac. Puedes desactivarlo en **Buscar actualizaciones automáticamente**.
 
 ---
 
@@ -184,6 +198,7 @@ tella/
 │   └── *.lproj/            # traducciones (36 idiomas)
 ├── Info.plist
 ├── build.sh                # compilar, instalar y crear el DMG
+├── RELEASING.md            # cómo publicar una versión nueva
 └── docs/
     ├── images/             # imágenes de este README
     └── src/gen.py          # script que genera las ilustraciones

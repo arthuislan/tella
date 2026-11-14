@@ -30,6 +30,48 @@ func makeMenuBarIcon() -> NSImage {
 /// Texto traduzido (pt-BR, en, es) a partir de Resources/<idioma>.lproj/Localizable.strings.
 func L(_ key: String) -> String { NSLocalizedString(key, comment: "") }
 
+/// Endereços do projeto no GitHub.
+enum Project {
+    static let developer = "Arthuislan"
+    static let repo = "arthuislan/tella"
+    static let page = URL(string: "https://github.com/\(repo)")!
+    static let issues = URL(string: "https://github.com/\(repo)/issues")!
+    static let releases = URL(string: "https://github.com/\(repo)/releases")!
+    static let latestReleaseAPI = URL(string: "https://api.github.com/repos/\(repo)/releases/latest")!
+}
+
+/// Versão publicada mais recente no GitHub.
+struct ReleaseInfo {
+    let version: String
+    let download: URL
+    let page: URL
+
+    /// Lê a resposta de api.github.com/repos/<repo>/releases/latest.
+    static func parse(_ data: Data) -> ReleaseInfo? {
+        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let tag = json["tag_name"] as? String,
+              let pageString = json["html_url"] as? String,
+              let page = URL(string: pageString) else { return nil }
+        let version = tag.hasPrefix("v") ? String(tag.dropFirst()) : tag
+        let assets = json["assets"] as? [[String: Any]] ?? []
+        let dmg = assets.first { ($0["name"] as? String)?.lowercased().hasSuffix(".dmg") == true }
+        let download = (dmg?["browser_download_url"] as? String).flatMap(URL.init(string:)) ?? page
+        return ReleaseInfo(version: version, download: download, page: page)
+    }
+
+    /// Compara versões numéricas: "1.10" é mais nova que "1.9", "1.2.1" mais nova que "1.2".
+    static func isNewer(_ a: String, than b: String) -> Bool {
+        let pa = a.split(separator: ".").map { Int($0) ?? 0 }
+        let pb = b.split(separator: ".").map { Int($0) ?? 0 }
+        for i in 0..<max(pa.count, pb.count) {
+            let x = i < pa.count ? pa[i] : 0
+            let y = i < pb.count ? pb[i] : 0
+            if x != y { return x > y }
+        }
+        return false
+    }
+}
+
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
     private var timer: Timer?
@@ -43,6 +85,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private let loginItem = NSMenuItem(title: L("menu.login"), action: #selector(toggleLogin), keyEquivalent: "")
     private let permissionItem = NSMenuItem(title: L("perm.menu"), action: nil, keyEquivalent: "")
     private let permStatusItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
+    private let updateItem = NSMenuItem(title: "", action: #selector(downloadUpdate), keyEquivalent: "")
+    private let autoUpdateItem = NSMenuItem(title: L("update.auto"), action: #selector(toggleAutoUpdate), keyEquivalent: "")
+    private var updateTimer: Timer?
+    /// Versão nova encontrada no GitHub (nil = você já está na mais recente).
+    private var availableUpdate: ReleaseInfo?
+
+    private var currentVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0"
+    }
+    private var buildNumber: String {
+        Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
+    }
+    private var autoUpdate: Bool {
+        get { UserDefaults.standard.bool(forKey: "autoCheckUpdates") }
+        set { UserDefaults.standard.set(newValue, forKey: "autoCheckUpdates"); refreshMenu() }
+    }
 
     /// Tempo de espera depois de entrar no outro monitor antes de clicar.
     private let clickDelay: TimeInterval = 0.12
@@ -53,8 +111,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        UserDefaults.standard.register(defaults: ["enabled": true])
+        UserDefaults.standard.register(defaults: ["enabled": true, "autoCheckUpdates": true])
         setupStatusItem()
+        startUpdateChecks()
 
         // Pede a permissão de Acessibilidade (necessária para simular cliques).
         let opts = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary
@@ -246,10 +305,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         let menu = NSMenu()
         menu.delegate = self
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
-        let versionItem = NSMenuItem(title: "Tella \(version)", action: nil, keyEquivalent: "")
-        versionItem.isEnabled = false
-        menu.addItem(versionItem)
+        let aboutItem = NSMenuItem(title: L("about.menu"), action: #selector(showAbout), keyEquivalent: "")
+        aboutItem.target = self
+        menu.addItem(aboutItem)
+        updateItem.target = self
+        updateItem.isHidden = true
+        menu.addItem(updateItem)
         menu.addItem(.separator())
         for item in [toggleItem, loginItem] { item.target = self }
         menu.addItem(toggleItem)
@@ -272,6 +333,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         permissionItem.submenu = permMenu
         menu.addItem(permissionItem)
         menu.addItem(.separator())
+
+        let checkItem = NSMenuItem(title: L("update.check"), action: #selector(checkForUpdatesNow), keyEquivalent: "")
+        checkItem.target = self
+        autoUpdateItem.target = self
+        menu.addItem(checkItem)
+        menu.addItem(autoUpdateItem)
+        menu.addItem(.separator())
         menu.addItem(NSMenuItem(title: L("menu.quit"), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         statusItem.menu = menu
         refreshMenu()
@@ -284,6 +352,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         permStatusItem.title = trusted ? "✓ " + L("perm.ok") : "⚠︎ " + L("perm.missing")
         permissionItem.title = trusted ? L("perm.menu") : "⚠︎ " + L("perm.menu")
         statusItem?.button?.appearsDisabled = !enabled
+        autoUpdateItem.state = autoUpdate ? .on : .off
+        if let update = availableUpdate {
+            updateItem.title = "⬇︎ " + String(format: L("update.available"), update.version)
+            updateItem.isHidden = false
+        } else {
+            updateItem.isHidden = true
+        }
     }
 
     @objc private func toggleEnabled() {
@@ -334,6 +409,134 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     /// Abre o Finder com o Tella selecionado (para arrastar para a lista de Acessibilidade, se preciso).
     @objc private func revealInFinder() {
         NSWorkspace.shared.activateFileViewerSelecting([Bundle.main.bundleURL])
+    }
+
+    // MARK: - Sobre o Tella
+
+    /// Janela "Sobre" padrão do macOS: ícone, nome, versão, créditos e direitos autorais.
+    @objc private func showAbout() {
+        let center = NSMutableParagraphStyle()
+        center.alignment = .center
+        center.paragraphSpacing = 6
+        let small = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
+        let body: [NSAttributedString.Key: Any] = [
+            .font: small, .foregroundColor: NSColor.labelColor, .paragraphStyle: center
+        ]
+        let muted: [NSAttributedString.Key: Any] = [
+            .font: small, .foregroundColor: NSColor.secondaryLabelColor, .paragraphStyle: center
+        ]
+        func link(_ title: String, _ url: URL) -> NSAttributedString {
+            NSAttributedString(string: title, attributes: [.font: small, .link: url, .paragraphStyle: center])
+        }
+
+        let credits = NSMutableAttributedString()
+        credits.append(NSAttributedString(string: String(format: L("about.developer"), Project.developer) + "\n", attributes: body))
+        credits.append(NSAttributedString(string: L("about.thanks") + "\n\n", attributes: body))
+        credits.append(link(L("about.website"), Project.page))
+        credits.append(NSAttributedString(string: "   ·   ", attributes: muted))
+        credits.append(link(L("about.issue"), Project.issues))
+        credits.append(NSAttributedString(string: "\n\n" + L("about.license"), attributes: muted))
+
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.orderFrontStandardAboutPanel(options: [
+            .applicationName: "Tella",
+            .applicationVersion: currentVersion,
+            .version: buildNumber,
+            .credits: credits,
+            NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "© 2026 \(Project.developer)"
+        ])
+    }
+
+    // MARK: - Atualizações
+
+    /// Confere no GitHub, pouco depois de abrir e depois a cada 6 horas,
+    /// se já passou um dia desde a última verificação automática.
+    private func startUpdateChecks() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) { [weak self] in self?.autoCheckIfDue() }
+        let t = Timer(timeInterval: 6 * 3600, repeats: true) { [weak self] _ in self?.autoCheckIfDue() }
+        RunLoop.main.add(t, forMode: .common)
+        updateTimer = t
+    }
+
+    private func autoCheckIfDue() {
+        guard autoUpdate else { return }
+        let last = UserDefaults.standard.object(forKey: "lastUpdateCheck") as? Date ?? .distantPast
+        guard Date().timeIntervalSince(last) > 20 * 3600 else { return }
+        checkForUpdates(manual: false)
+    }
+
+    @objc private func checkForUpdatesNow() { checkForUpdates(manual: true) }
+
+    @objc private func toggleAutoUpdate() {
+        autoUpdate.toggle()
+        if autoUpdate { autoCheckIfDue() }
+    }
+
+    /// Consulta só a página pública de versões do Tella no GitHub. Nada sobre você ou o seu Mac é enviado.
+    private func checkForUpdates(manual: Bool) {
+        var request = URLRequest(url: Project.latestReleaseAPI,
+                                 cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 20)
+        request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
+        request.setValue("Tella/\(currentVersion)", forHTTPHeaderField: "User-Agent")
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, _ in
+            let ok = (response as? HTTPURLResponse)?.statusCode == 200
+            let release = ok ? data.flatMap(ReleaseInfo.parse) : nil
+            DispatchQueue.main.async { self?.handleUpdateResult(release, manual: manual) }
+        }.resume()
+    }
+
+    private func handleUpdateResult(_ release: ReleaseInfo?, manual: Bool) {
+        guard let release = release else {
+            if manual { showAlert(title: L("update.error.title"), text: L("update.error.body")) }
+            return
+        }
+        UserDefaults.standard.set(Date(), forKey: "lastUpdateCheck")
+
+        guard ReleaseInfo.isNewer(release.version, than: currentVersion) else {
+            availableUpdate = nil
+            refreshMenu()
+            if manual {
+                showAlert(title: L("update.uptodate.title"),
+                          text: String(format: L("update.uptodate.body"), currentVersion))
+            }
+            return
+        }
+
+        availableUpdate = release
+        refreshMenu()
+        // Na verificação automática, avisa só uma vez por versão; depois fica o item no menu.
+        let notified = UserDefaults.standard.string(forKey: "notifiedUpdateVersion")
+        if manual || notified != release.version {
+            UserDefaults.standard.set(release.version, forKey: "notifiedUpdateVersion")
+            offerUpdate(release)
+        }
+    }
+
+    private func offerUpdate(_ release: ReleaseInfo) {
+        let alert = NSAlert()
+        alert.icon = NSApp.applicationIconImage
+        alert.messageText = String(format: L("update.new.title"), release.version)
+        alert.informativeText = String(format: L("update.new.body"), currentVersion)
+        alert.addButton(withTitle: L("update.download"))
+        alert.addButton(withTitle: L("update.later"))
+        NSApp.activate(ignoringOtherApps: true)
+        if alert.runModal() == .alertFirstButtonReturn {
+            NSWorkspace.shared.open(release.download)
+        }
+    }
+
+    @objc private func downloadUpdate() {
+        guard let release = availableUpdate else { return }
+        NSWorkspace.shared.open(release.download)
+    }
+
+    private func showAlert(title: String, text: String) {
+        let alert = NSAlert()
+        alert.icon = NSApp.applicationIconImage
+        alert.messageText = title
+        alert.informativeText = text
+        NSApp.activate(ignoringOtherApps: true)
+        alert.runModal()
     }
 }
 
