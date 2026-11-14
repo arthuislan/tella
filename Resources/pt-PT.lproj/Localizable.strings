@@ -1,0 +1,13 @@
+/* Tella — pt-PT */
+"menu.enabled" = "Ativo";
+"menu.login" = "Abrir ao iniciar sessão";
+"menu.quit" = "Sair do Tella";
+"alert.login.title" = "Não foi possível alterar a abertura ao iniciar sessão";
+"alert.login.body" = "Mova o Tella para a pasta Aplicações e tente novamente.";
+"perm.menu" = "Permissão";
+"perm.ok" = "Acessibilidade permitida";
+"perm.missing" = "Acessibilidade não permitida";
+"perm.open" = "Abrir definições de Acessibilidade…";
+"perm.request" = "Pedir permissão novamente";
+"perm.reset" = "Repor permissão";
+"perm.reveal" = "Mostrar o Tella no Finder";

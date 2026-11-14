@@ -1,0 +1,13 @@
+/* Tella — de */
+"menu.enabled" = "Aktiv";
+"menu.login" = "Bei der Anmeldung öffnen";
+"menu.quit" = "Tella beenden";
+"alert.login.title" = "„Bei der Anmeldung öffnen“ konnte nicht geändert werden";
+"alert.login.body" = "Bewege Tella in den Ordner „Programme“ und versuche es erneut.";
+"perm.menu" = "Berechtigung";
+"perm.ok" = "Bedienungshilfen erlaubt";
+"perm.missing" = "Bedienungshilfen nicht erlaubt";
+"perm.open" = "Einstellungen für Bedienungshilfen öffnen …";
+"perm.request" = "Berechtigung erneut anfordern";
+"perm.reset" = "Berechtigung zurücksetzen";
+"perm.reveal" = "Tella im Finder zeigen";

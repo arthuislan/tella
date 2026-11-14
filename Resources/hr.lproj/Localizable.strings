@@ -1,0 +1,13 @@
+/* Tella — hr */
+"menu.enabled" = "Uključeno";
+"menu.login" = "Otvori pri prijavi";
+"menu.quit" = "Zatvori Tella";
+"alert.login.title" = "Nije moguće promijeniti otvaranje pri prijavi";
+"alert.login.body" = "Premjestite Tella u mapu Aplikacije i pokušajte ponovno.";
+"perm.menu" = "Dopuštenje";
+"perm.ok" = "Pristupačnost dopuštena";
+"perm.missing" = "Pristupačnost nije dopuštena";
+"perm.open" = "Otvori postavke pristupačnosti…";
+"perm.request" = "Ponovno zatraži dopuštenje";
+"perm.reset" = "Resetiraj dopuštenje";
+"perm.reveal" = "Prikaži Tella u Finderu";

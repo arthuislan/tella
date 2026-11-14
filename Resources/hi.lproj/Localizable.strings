@@ -1,0 +1,13 @@
+/* Tella — hi */
+"menu.enabled" = "चालू";
+"menu.login" = "लॉगिन पर खोलें";
+"menu.quit" = "Tella बंद करें";
+"alert.login.title" = "लॉगिन पर खोलने की सेटिंग नहीं बदली जा सकी";
+"alert.login.body" = "Tella को ऐप्लिकेशन फ़ोल्डर में ले जाएँ और फिर से कोशिश करें।";
+"perm.menu" = "अनुमति";
+"perm.ok" = "ऐक्सेसिबिलिटी की अनुमति है";
+"perm.missing" = "ऐक्सेसिबिलिटी की अनुमति नहीं है";
+"perm.open" = "ऐक्सेसिबिलिटी सेटिंग्ज़ खोलें…";
+"perm.request" = "फिर से अनुमति माँगें";
+"perm.reset" = "अनुमति रीसेट करें";
+"perm.reveal" = "Finder में Tella दिखाएँ";

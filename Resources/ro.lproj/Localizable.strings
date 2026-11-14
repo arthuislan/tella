@@ -1,0 +1,13 @@
+/* Tella — ro */
+"menu.enabled" = "Activ";
+"menu.login" = "Deschide la autentificare";
+"menu.quit" = "Ieși din Tella";
+"alert.login.title" = "Nu s-a putut modifica deschiderea la autentificare";
+"alert.login.body" = "Mută Tella în dosarul Aplicații și încearcă din nou.";
+"perm.menu" = "Permisiune";
+"perm.ok" = "Accesibilitate permisă";
+"perm.missing" = "Accesibilitate nepermisă";
+"perm.open" = "Deschide configurările Accesibilitate…";
+"perm.request" = "Cere din nou permisiunea";
+"perm.reset" = "Resetează permisiunea";
+"perm.reveal" = "Afișează Tella în Finder";

@@ -1,0 +1,13 @@
+/* Tella — tr */
+"menu.enabled" = "Etkin";
+"menu.login" = "Girişte Aç";
+"menu.quit" = "Tella’dan Çık";
+"alert.login.title" = "Girişte açma ayarı değiştirilemedi";
+"alert.login.body" = "Tella’yı Uygulamalar klasörüne taşıyın ve yeniden deneyin.";
+"perm.menu" = "İzin";
+"perm.ok" = "Erişilebilirliğe izin verildi";
+"perm.missing" = "Erişilebilirliğe izin verilmedi";
+"perm.open" = "Erişilebilirlik Ayarlarını Aç…";
+"perm.request" = "İzni Yeniden İste";
+"perm.reset" = "İzni Sıfırla";
+"perm.reveal" = "Tella’yı Finder’da Göster";

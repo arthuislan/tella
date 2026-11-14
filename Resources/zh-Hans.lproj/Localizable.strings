@@ -1,0 +1,13 @@
+/* Tella — zh-Hans */
+"menu.enabled" = "已启用";
+"menu.login" = "登录时打开";
+"menu.quit" = "退出 Tella";
+"alert.login.title" = "无法更改“登录时打开”";
+"alert.login.body" = "请将 Tella 移到“应用程序”文件夹，然后重试。";
+"perm.menu" = "权限";
+"perm.ok" = "已允许辅助功能";
+"perm.missing" = "未允许辅助功能";
+"perm.open" = "打开“辅助功能”设置…";
+"perm.request" = "再次请求权限";
+"perm.reset" = "重置权限";
+"perm.reveal" = "在访达中显示 Tella";

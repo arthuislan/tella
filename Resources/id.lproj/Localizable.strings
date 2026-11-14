@@ -1,0 +1,13 @@
+/* Tella — id */
+"menu.enabled" = "Aktif";
+"menu.login" = "Buka saat Masuk";
+"menu.quit" = "Keluar dari Tella";
+"alert.login.title" = "Tidak dapat mengubah Buka saat Masuk";
+"alert.login.body" = "Pindahkan Tella ke folder Aplikasi dan coba lagi.";
+"perm.menu" = "Izin";
+"perm.ok" = "Aksesibilitas diizinkan";
+"perm.missing" = "Aksesibilitas tidak diizinkan";
+"perm.open" = "Buka Pengaturan Aksesibilitas…";
+"perm.request" = "Minta Izin Lagi";
+"perm.reset" = "Atur Ulang Izin";
+"perm.reveal" = "Tampilkan Tella di Finder";

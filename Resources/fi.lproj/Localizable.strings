@@ -1,0 +1,13 @@
+/* Tella — fi */
+"menu.enabled" = "Käytössä";
+"menu.login" = "Avaa kirjauduttaessa";
+"menu.quit" = "Lopeta Tella";
+"alert.login.title" = "Avaa kirjauduttaessa -asetusta ei voitu muuttaa";
+"alert.login.body" = "Siirrä Tella Ohjelmat-kansioon ja yritä uudelleen.";
+"perm.menu" = "Lupa";
+"perm.ok" = "Käyttöapu sallittu";
+"perm.missing" = "Käyttöapua ei sallittu";
+"perm.open" = "Avaa Käyttöapu-asetukset…";
+"perm.request" = "Pyydä lupaa uudelleen";
+"perm.reset" = "Nollaa lupa";
+"perm.reveal" = "Näytä Tella Finderissa";

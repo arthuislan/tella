@@ -1,0 +1,13 @@
+/* Tella — pl */
+"menu.enabled" = "Włączony";
+"menu.login" = "Otwieraj po zalogowaniu";
+"menu.quit" = "Zakończ Tella";
+"alert.login.title" = "Nie można zmienić otwierania po zalogowaniu";
+"alert.login.body" = "Przenieś Tella do folderu Aplikacje i spróbuj ponownie.";
+"perm.menu" = "Uprawnienia";
+"perm.ok" = "Dostępność dozwolona";
+"perm.missing" = "Dostępność niedozwolona";
+"perm.open" = "Otwórz ustawienia dostępności…";
+"perm.request" = "Poproś ponownie o uprawnienia";
+"perm.reset" = "Resetuj uprawnienia";
+"perm.reveal" = "Pokaż Tella w Finderze";

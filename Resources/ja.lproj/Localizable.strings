@@ -1,0 +1,13 @@
+/* Tella — ja */
+"menu.enabled" = "有効";
+"menu.login" = "ログイン時に開く";
+"menu.quit" = "Tellaを終了";
+"alert.login.title" = "ログイン時に開く設定を変更できませんでした";
+"alert.login.body" = "Tellaを“アプリケーション”フォルダに移動してから、もう一度お試しください。";
+"perm.menu" = "権限";
+"perm.ok" = "アクセシビリティは許可されています";
+"perm.missing" = "アクセシビリティが許可されていません";
+"perm.open" = "アクセシビリティ設定を開く…";
+"perm.request" = "もう一度許可を求める";
+"perm.reset" = "権限をリセット";
+"perm.reveal" = "FinderでTellaを表示";

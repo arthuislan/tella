@@ -1,0 +1,13 @@
+/* Tella — he */
+"menu.enabled" = "פעיל";
+"menu.login" = "פתיחה בעת התחברות";
+"menu.quit" = "יציאה מ‑Tella";
+"alert.login.title" = "לא ניתן לשנות את הפתיחה בעת התחברות";
+"alert.login.body" = "העבירו את Tella לתיקייה ”יישומים“ ונסו שוב.";
+"perm.menu" = "הרשאה";
+"perm.ok" = "נגישות מורשית";
+"perm.missing" = "נגישות אינה מורשית";
+"perm.open" = "פתח הגדרות נגישות…";
+"perm.request" = "בקש הרשאה שוב";
+"perm.reset" = "אפס הרשאה";
+"perm.reveal" = "הצג את Tella ב‑Finder";

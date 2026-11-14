@@ -1,0 +1,13 @@
+/* Tella — ms */
+"menu.enabled" = "Aktif";
+"menu.login" = "Buka semasa Log Masuk";
+"menu.quit" = "Keluar Tella";
+"alert.login.title" = "Tidak dapat menukar Buka semasa Log Masuk";
+"alert.login.body" = "Alihkan Tella ke folder Aplikasi dan cuba lagi.";
+"perm.menu" = "Kebenaran";
+"perm.ok" = "Kebolehcapaian dibenarkan";
+"perm.missing" = "Kebolehcapaian tidak dibenarkan";
+"perm.open" = "Buka Seting Kebolehcapaian…";
+"perm.request" = "Minta Kebenaran Semula";
+"perm.reset" = "Reset Kebenaran";
+"perm.reveal" = "Tunjukkan Tella dalam Finder";

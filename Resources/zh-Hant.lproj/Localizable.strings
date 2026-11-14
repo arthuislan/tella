@@ -1,0 +1,13 @@
+/* Tella — zh-Hant */
+"menu.enabled" = "已啟用";
+"menu.login" = "登入時打開";
+"menu.quit" = "結束 Tella";
+"alert.login.title" = "無法更改「登入時打開」";
+"alert.login.body" = "請將 Tella 移到「應用程式」檔案夾，然後再試一次。";
+"perm.menu" = "權限";
+"perm.ok" = "已允許輔助使用";
+"perm.missing" = "未允許輔助使用";
+"perm.open" = "打開「輔助使用」設定…";
+"perm.request" = "再次要求權限";
+"perm.reset" = "重置權限";
+"perm.reveal" = "在 Finder 中顯示 Tella";

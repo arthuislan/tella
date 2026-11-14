@@ -1,0 +1,13 @@
+/* Tella — sk */
+"menu.enabled" = "Zapnuté";
+"menu.login" = "Otvárať po prihlásení";
+"menu.quit" = "Ukončiť Tella";
+"alert.login.title" = "Otváranie po prihlásení nie je možné zmeniť";
+"alert.login.body" = "Presuňte Tella do priečinka Aplikácie a skúste to znova.";
+"perm.menu" = "Povolenie";
+"perm.ok" = "Prístupnosť povolená";
+"perm.missing" = "Prístupnosť nepovolená";
+"perm.open" = "Otvoriť nastavenia prístupnosti…";
+"perm.request" = "Znova požiadať o povolenie";
+"perm.reset" = "Resetovať povolenie";
+"perm.reveal" = "Zobraziť Tella vo Finderi";

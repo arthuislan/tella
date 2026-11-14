@@ -1,0 +1,13 @@
+/* Tella — hu */
+"menu.enabled" = "Bekapcsolva";
+"menu.login" = "Megnyitás bejelentkezéskor";
+"menu.quit" = "Kilépés a Tella alkalmazásból";
+"alert.login.title" = "A bejelentkezéskori megnyitás nem módosítható";
+"alert.login.body" = "Helyezze át a Tella alkalmazást az Alkalmazások mappába, majd próbálja újra.";
+"perm.menu" = "Engedély";
+"perm.ok" = "Kisegítő lehetőségek engedélyezve";
+"perm.missing" = "Kisegítő lehetőségek nincsenek engedélyezve";
+"perm.open" = "Kisegítő lehetőségek beállításainak megnyitása…";
+"perm.request" = "Engedély újbóli kérése";
+"perm.reset" = "Engedély visszaállítása";
+"perm.reveal" = "Tella megjelenítése a Finderben";

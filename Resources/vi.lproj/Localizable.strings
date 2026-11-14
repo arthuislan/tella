@@ -1,0 +1,13 @@
+/* Tella — vi */
+"menu.enabled" = "Bật";
+"menu.login" = "Mở khi đăng nhập";
+"menu.quit" = "Thoát Tella";
+"alert.login.title" = "Không thể thay đổi cài đặt mở khi đăng nhập";
+"alert.login.body" = "Di chuyển Tella vào thư mục Ứng dụng và thử lại.";
+"perm.menu" = "Quyền";
+"perm.ok" = "Đã cho phép Trợ năng";
+"perm.missing" = "Chưa cho phép Trợ năng";
+"perm.open" = "Mở cài đặt Trợ năng…";
+"perm.request" = "Yêu cầu quyền lại";
+"perm.reset" = "Đặt lại quyền";
+"perm.reveal" = "Hiển thị Tella trong Finder";

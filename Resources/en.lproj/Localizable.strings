@@ -1,0 +1,13 @@
+/* Tella — en */
+"menu.enabled" = "Enabled";
+"menu.login" = "Open at Login";
+"menu.quit" = "Quit Tella";
+"alert.login.title" = "Couldn’t change Open at Login";
+"alert.login.body" = "Move Tella to the Applications folder and try again.";
+"perm.menu" = "Permission";
+"perm.ok" = "Accessibility allowed";
+"perm.missing" = "Accessibility not allowed";
+"perm.open" = "Open Accessibility Settings…";
+"perm.request" = "Request Permission Again";
+"perm.reset" = "Reset Permission";
+"perm.reveal" = "Show Tella in Finder";

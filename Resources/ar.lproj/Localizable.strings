@@ -1,0 +1,13 @@
+/* Tella — ar */
+"menu.enabled" = "مُفعّل";
+"menu.login" = "فتح عند تسجيل الدخول";
+"menu.quit" = "إنهاء Tella";
+"alert.login.title" = "تعذّر تغيير الفتح عند تسجيل الدخول";
+"alert.login.body" = "انقل Tella إلى مجلد التطبيقات ثم حاول مرة أخرى.";
+"perm.menu" = "الإذن";
+"perm.ok" = "تسهيلات الاستخدام مسموح بها";
+"perm.missing" = "تسهيلات الاستخدام غير مسموح بها";
+"perm.open" = "فتح إعدادات تسهيلات الاستخدام…";
+"perm.request" = "طلب الإذن مرة أخرى";
+"perm.reset" = "إعادة تعيين الإذن";
+"perm.reveal" = "إظهار Tella في Finder";

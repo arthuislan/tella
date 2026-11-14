@@ -1,0 +1,13 @@
+/* Tella — da */
+"menu.enabled" = "Aktiv";
+"menu.login" = "Åbn ved login";
+"menu.quit" = "Afslut Tella";
+"alert.login.title" = "Kunne ikke ændre Åbn ved login";
+"alert.login.body" = "Flyt Tella til mappen Programmer, og prøv igen.";
+"perm.menu" = "Tilladelse";
+"perm.ok" = "Tilgængelighed tilladt";
+"perm.missing" = "Tilgængelighed ikke tilladt";
+"perm.open" = "Åbn indstillinger for Tilgængelighed…";
+"perm.request" = "Bed om tilladelse igen";
+"perm.reset" = "Nulstil tilladelse";
+"perm.reveal" = "Vis Tella i Finder";

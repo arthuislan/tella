@@ -1,0 +1,13 @@
+/* Tella — sv */
+"menu.enabled" = "Aktiv";
+"menu.login" = "Öppna vid inloggning";
+"menu.quit" = "Avsluta Tella";
+"alert.login.title" = "Det gick inte att ändra Öppna vid inloggning";
+"alert.login.body" = "Flytta Tella till mappen Program och försök igen.";
+"perm.menu" = "Behörighet";
+"perm.ok" = "Hjälpmedel tillåtet";
+"perm.missing" = "Hjälpmedel inte tillåtet";
+"perm.open" = "Öppna inställningar för Hjälpmedel…";
+"perm.request" = "Be om behörighet igen";
+"perm.reset" = "Återställ behörighet";
+"perm.reveal" = "Visa Tella i Finder";

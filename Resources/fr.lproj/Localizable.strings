@@ -1,0 +1,13 @@
+/* Tella — fr */
+"menu.enabled" = "Activé";
+"menu.login" = "Ouvrir à l’ouverture de session";
+"menu.quit" = "Quitter Tella";
+"alert.login.title" = "Impossible de modifier l’ouverture à la connexion";
+"alert.login.body" = "Déplacez Tella dans le dossier Applications, puis réessayez.";
+"perm.menu" = "Autorisation";
+"perm.ok" = "Accessibilité autorisée";
+"perm.missing" = "Accessibilité non autorisée";
+"perm.open" = "Ouvrir les réglages d’Accessibilité…";
+"perm.request" = "Redemander l’autorisation";
+"perm.reset" = "Réinitialiser l’autorisation";
+"perm.reveal" = "Afficher Tella dans le Finder";

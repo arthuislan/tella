@@ -1,0 +1,13 @@
+/* Tella — nl */
+"menu.enabled" = "Actief";
+"menu.login" = "Open bij inloggen";
+"menu.quit" = "Stop Tella";
+"alert.login.title" = "Kan ‘Open bij inloggen’ niet wijzigen";
+"alert.login.body" = "Verplaats Tella naar de map Apps en probeer het opnieuw.";
+"perm.menu" = "Toestemming";
+"perm.ok" = "Toegankelijkheid toegestaan";
+"perm.missing" = "Toegankelijkheid niet toegestaan";
+"perm.open" = "Open instellingen voor Toegankelijkheid…";
+"perm.request" = "Vraag opnieuw om toestemming";
+"perm.reset" = "Stel toestemming opnieuw in";
+"perm.reveal" = "Toon Tella in Finder";
