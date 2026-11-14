@@ -2,11 +2,13 @@
 # Compila o Tella.  Uso:
 #   ./build.sh            -> gera build/Tella.app
 #   ./build.sh --install  -> gera, copia para /Applications e abre
-#   ./build.sh --dmg      -> gera o instalador Tella.dmg
+#   ./build.sh --dmg      -> gera o instalador Tella-<versão>.dmg (ex.: Tella-1.3.dmg)
 set -euo pipefail
 cd "$(dirname "$0")"
 
 APP="build/Tella.app"
+VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" Info.plist)
+DMG="Tella-$VERSION.dmg"
 TMP="build/tmp"
 rm -rf build
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$TMP"
@@ -42,9 +44,9 @@ case "${1:-}" in
     mkdir -p "$STAGE"
     ditto "$APP" "$STAGE/Tella.app"
     ln -s /Applications "$STAGE/Applications"
-    rm -f Tella.dmg
-    hdiutil create -volname "Tella" -srcfolder "$STAGE" -ov -format UDZO Tella.dmg >/dev/null
-    echo "✅ Instalador pronto: $(pwd)/Tella.dmg"
-    open -R Tella.dmg
+    rm -f "$DMG"
+    hdiutil create -volname "Tella $VERSION" -srcfolder "$STAGE" -ov -format UDZO "$DMG" >/dev/null
+    echo "✅ Instalador pronto: $(pwd)/$DMG"
+    open -R "$DMG"
     ;;
 esac

@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/arthuislan/tella/releases/latest/download/Tella.dmg"><b>⬇︎ Download Tella.dmg</b></a>
+  <a href="https://github.com/arthuislan/tella/releases/download/v1.3/Tella-1.3.dmg"><b>⬇︎ Download Tella 1.3</b></a>
   &nbsp;·&nbsp; macOS 13+ · Apple Silicon
 </p>
 
@@ -120,7 +120,7 @@ To use Tella in a different language without changing your whole Mac, go to **Sy
 
 ### With the installer (DMG)
 
-1. Download **[Tella.dmg](https://github.com/arthuislan/tella/releases/latest/download/Tella.dmg)** from the [Releases](https://github.com/arthuislan/tella/releases) page.
+1. Download **[Tella-1.3.dmg](https://github.com/arthuislan/tella/releases/download/v1.3/Tella-1.3.dmg)** from the [Releases](https://github.com/arthuislan/tella/releases) page.
 2. Open the DMG and drag **Tella** into the **Applications** folder.
 3. Open Tella. Because the app is not notarized by Apple, macOS may say it can't verify the developer the first time. To open it anyway, go to **System Settings → Privacy & Security** and click **Open Anyway**, or right-click the app and choose **Open**.
 4. When Tella asks, turn on its permission in **System Settings → Privacy & Security → Accessibility**.
@@ -133,7 +133,7 @@ You need the Xcode Command Line Tools (`xcode-select --install`).
 git clone https://github.com/arthuislan/tella.git
 cd tella
 ./build.sh --install   # build, install to /Applications and open
-./build.sh --dmg       # build and create the Tella.dmg installer
+./build.sh --dmg       # build and create the Tella-x.y.dmg installer
 ```
 
 ---
@@ -176,7 +176,7 @@ tccutil reset Accessibility local.tella
 
 Tella checks the [Releases](https://github.com/arthuislan/tella/releases) page once a day. When a new version is out, it lets you know and shows **Update Available** in the menu.
 
-To update: download the new **Tella.dmg**, open it and drag Tella into **Applications**, replacing the old one. After updating, macOS may ask you to allow Tella under **Accessibility** again — if it doesn't work right away, use **Permission → Reset Permission** in the menu.
+To update: download the new **Tella-x.y.dmg**, open it and drag Tella into **Applications**, replacing the old one. After updating, macOS may ask you to allow Tella under **Accessibility** again — if it doesn't work right away, use **Permission → Reset Permission** in the menu.
 
 ---
 

@@ -21,9 +21,9 @@ O Tella consulta a última release do GitHub para saber se existe versão nova. 
 
    **A tag é `v` + versão** (ex.: `v1.3`), criada a partir da `main`.
 
-4. **The installer is always named `Tella.dmg`** and is attached to the release. The app downloads the `.dmg` from the latest release, and `releases/latest/download/Tella.dmg` always points to it.
+4. **The installer is named `Tella-<version>.dmg`** (e.g. `Tella-1.3.dmg`) and is attached to the release. `./build.sh --dmg` creates it with the right name from `Info.plist`. The app downloads whichever `.dmg` is attached to the latest release.
 
-   **O instalador sempre se chama `Tella.dmg`** e vai anexado na release.
+   **O instalador se chama `Tella-<versão>.dmg`** (ex.: `Tella-1.3.dmg`) e vai anexado na release. O `./build.sh --dmg` já gera com o nome certo a partir do `Info.plist`.
 
 5. **The release must be published and marked as Latest** — drafts and pre-releases are ignored by the update check, so use a pre-release to test without notifying users.
 
@@ -37,13 +37,17 @@ O Tella consulta a última release do GitHub para saber se existe versão nova. 
 
    **Textos novos no app** entram em todos os arquivos de tradução. O nome **Tella** nunca é traduzido.
 
+8. **Update the download links** in `README.md`, `README.pt-BR.md` and `README.es.md` to the new version (search for the old number, e.g. `1.3`, in the download button and in step 1 of Installation): `https://github.com/arthuislan/tella/releases/download/v<version>/Tella-<version>.dmg`.
+
+   **Atualize os links de download** nos três READMEs para a versão nova (botão de download e passo 1 da Instalação).
+
 ## Steps · Passo a passo
 
 ```bash
-# 1. Edit Info.plist (version + build) and CHANGELOG.md
+# 1. Edit Info.plist (version + build), CHANGELOG.md and the README download links
 # 2. Build and test the installer
 ./build.sh --install     # try it on your Mac
-./build.sh --dmg         # creates Tella.dmg (not committed — see .gitignore)
+./build.sh --dmg         # creates Tella-1.3.dmg (not committed — see .gitignore)
 
 # 3. Commit and push
 git add -A
@@ -51,9 +55,9 @@ git commit -m "Tella 1.3"
 git push
 ```
 
-4. On GitHub: **Releases → Draft a new release** → tag `v1.3` on `main` → title `Tella 1.3` → notes in EN/PT/ES → attach `Tella.dmg` → **Publish release**.
+4. On GitHub: **Releases → Draft a new release** → tag `v1.3` on `main` → title `Tella 1.3` → notes in EN/PT/ES → attach `Tella-1.3.dmg` → **Publish release**.
 
-   No GitHub: **Releases → Draft a new release** → tag `v1.3` na `main` → título `Tella 1.3` → notas em EN/PT/ES → anexe o `Tella.dmg` → **Publish release**.
+   No GitHub: **Releases → Draft a new release** → tag `v1.3` na `main` → título `Tella 1.3` → notas em EN/PT/ES → anexe o `Tella-1.3.dmg` → **Publish release**.
 
 Within a day, everyone running an older version sees **Update Available** in the Tella menu.
 
