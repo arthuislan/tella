@@ -28,3 +28,4 @@
 "update.new.body" = "A(z) %@ verziót használod. Töltsd le az új verziót, nyisd meg, és húzd a Tellát az Alkalmazások mappába a régi lecseréléséhez.";
 "update.download" = "Letöltés";
 "update.later" = "Később";
+"follow.menu" = "A mutató alatti ablak aktiválása";

@@ -28,3 +28,4 @@
 "update.new.body" = "You have version %@. Download the new version, open it and drag Tella to Applications to replace the old one.";
 "update.download" = "Download";
 "update.later" = "Later";
+"follow.menu" = "Activate Window Under Cursor";

@@ -28,3 +28,4 @@
 "update.new.body" = "Masz wersję %@. Pobierz nową wersję, otwórz ją i przeciągnij Tella do folderu Aplikacje, aby zastąpić starą.";
 "update.download" = "Pobierz";
 "update.later" = "Później";
+"follow.menu" = "Aktywuj okno pod kursorem";

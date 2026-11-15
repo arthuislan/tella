@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/arthuislan/tella/releases/download/v1.3/Tella-1.3.dmg"><b>⬇︎ Descargar Tella 1.3</b></a>
-  &nbsp;·&nbsp; macOS 13+ · Apple Silicon
+  <a href="https://github.com/arthuislan/tella/releases/download/v1.4/Tella-1.4.dmg"><b>⬇︎ Descargar Tella 1.4</b></a>
+  &nbsp;·&nbsp; macOS 13+ · Apple Silicon e Intel
 </p>
 
 <p align="center">
@@ -59,21 +59,35 @@ Con Tella encendido, cuando el cursor entra en otra pantalla, la app activa la *
 
 ## Cómo funciona
 
-1. Cada 30 ms, Tella revisa en qué pantalla está el cursor.
-2. Cuando el cursor **cambia de pantalla**, espera un instante (0,12 s) para confirmar que realmente te quedaste ahí.
-3. Busca la ventana **más al frente** de esa pantalla y la activa, junto con su app, mediante la API de Accesibilidad de macOS.
+### Al llegar desde otra pantalla
 
-Cuidados que toma la app:
+1. Cuando el cursor **cambia de pantalla**, Tella espera a que llegue a una ventana, para nunca elegir una ventana antes de que llegues a ella.
+2. Si el cursor entra en una ventana que **nada tapa**, esa ventana queda activa.
+3. En cualquier otro lugar (barra de menús, escritorio o una ventana parcialmente detrás de otra), nada cambia: una ventana solo queda activa cuando el cursor la elige.
 
-- **¿Arrastrando algo entre pantallas?** Si el botón del mouse está presionado, Tella no hace nada, para no interrumpir el arrastre.
-- **¿Conectaste o desconectaste un monitor?** Tella solo actualiza su referencia y no activa nada.
-- **¿La pantalla no tiene ventanas?** No hace nada.
+### Ventanas bajo el cursor
+
+Con **Activar ventana bajo el cursor** activado (por defecto), toda ventana que **nada tapa** — flotando sobre las demás o lado a lado, como el Finder a la izquierda y la Terminal a la derecha — queda activa en cuanto el cursor entra en ella. Sin clic, en la MacBook, en el monitor externo y en todos los escritorios (Spaces).
+
+Cuando el cursor **sale** de esa ventana hacia un espacio vacío — el escritorio, o una ventana de atrás, como el espacio entre el Finder y la Terminal — la ventana se **suelta**: ninguna ventana queda activa hasta que el cursor elija otra, así que nada de lo que escribas va al lugar equivocado. La barra de menús, los menús y el Dock no cuentan, así que sigues alcanzando los menús de la app activa.
+
+Una ventana **parcialmente detrás de otra** nunca se activa con el cursor: activarla la traería al frente y taparía la ventana de adelante. En esos casos, haces clic, como siempre. Ninguna ventana cambia de lugar ni de orden.
+
+Desactiva **Activar ventana bajo el cursor** para tener el comportamiento clásico: Tella solo actúa cuando el cursor cambia de pantalla, activando siempre la ventana del frente de esa pantalla.
 
 ### Al minimizar una ventana
 
 Si minimizas la ventana que estabas usando, Tella activa **al instante** la ventana que quedó al frente en esa pantalla, normalmente la que estaba detrás. Así sigues escribiendo sin tener que hacer clic.
 
-> **Importante:** Tella actúa **solo cuando el cursor cambia de pantalla o cuando minimizas una ventana**. Todo lo demás funciona como siempre: para cambiar de ventana en la misma pantalla, haces clic normalmente.
+### Cuidados que toma la app
+
+- **¿Arrastrando algo?** Con el botón del mouse presionado, Tella no hace nada, para no interrumpir el arrastre.
+- **Spotlight, Raycast, Alfred y paneles similares:** mientras uno está abierto, Tella no cambia de ventana, para no cerrarlo.
+- **Menús, Dock y avisos bajo el cursor:** Tella los ignora.
+- **¿Conectaste o desconectaste un monitor?** Tella solo actualiza su referencia y no activa nada.
+- **Ahorra batería:** Tella solo trabaja mientras el mouse se mueve.
+
+Todo mediante la API de Accesibilidad de macOS.
 
 ---
 
@@ -84,6 +98,7 @@ Si minimizas la ventana que estabas usando, Tella activa **al instante** la vent
 | **Acerca de Tella** | Muestra la versión, el desarrollador, el sitio web y la licencia. |
 | **Actualización disponible: Tella x.y** | Solo aparece cuando hay una versión nueva. Haz clic para descargarla. |
 | **Activo** | Enciende o apaga Tella sin cerrar la app. |
+| **Activar ventana bajo el cursor** | Las ventanas que nada tapa quedan activas cuando el cursor entra en ellas (activado por defecto). Desactivado = comportamiento clásico. |
 | **Abrir al iniciar sesión** | Abre Tella automáticamente al iniciar sesión en tu Mac. |
 | **Permiso** | Muestra si la Accesibilidad está permitida (✓) o falta (⚠︎) y agrupa las opciones de abajo. |
 | ↳ **Abrir ajustes de Accesibilidad…** | Abre la lista de Accesibilidad en Ajustes del Sistema. |
@@ -111,7 +126,7 @@ Para usar Tella en otro idioma sin cambiar todo tu Mac, ve a **Ajustes del Siste
 ## Requisitos
 
 - macOS 13 (Ventura) o posterior
-- Mac con Apple Silicon (M1, M2, M3, M4…)
+- Mac con Apple Silicon (M1, M2, M3, M4…) o Intel
 - Permiso de **Accesibilidad**, que Tella necesita para activar ventanas de otras apps
 
 ---
@@ -120,7 +135,7 @@ Para usar Tella en otro idioma sin cambiar todo tu Mac, ve a **Ajustes del Siste
 
 ### Con el instalador (DMG)
 
-1. Descarga **[Tella-1.3.dmg](https://github.com/arthuislan/tella/releases/download/v1.3/Tella-1.3.dmg)** desde la página de [Releases](https://github.com/arthuislan/tella/releases).
+1. Descarga **[Tella-1.4.dmg](https://github.com/arthuislan/tella/releases/download/v1.4/Tella-1.4.dmg)** desde la página de [Releases](https://github.com/arthuislan/tella/releases).
 2. Abre el DMG y arrastra **Tella** a la carpeta **Aplicaciones**.
 3. Abre Tella. Como la app no está notarizada por Apple, la primera vez macOS puede avisar que no puede verificar al desarrollador. Para abrirla de todos modos, ve a **Ajustes del Sistema → Privacidad y seguridad → Abrir de todos modos**, o haz clic derecho en la app y elige **Abrir**.
 4. Cuando Tella lo pida, activa el permiso en **Ajustes del Sistema → Privacidad y seguridad → Accesibilidad**.
@@ -135,6 +150,8 @@ cd tella
 ./build.sh --install   # compila, instala en /Applications y abre
 ./build.sh --dmg       # compila y crea el instalador Tella-x.y.dmg
 ```
+
+`build.sh` genera una app universal (Apple Silicon + Intel). Si tu llavero tiene un certificado de firma de código (o defines `TELLA_SIGN_ID`), firma con él y macOS mantiene el permiso de Accesibilidad en cada compilación. Sin certificado, quizá debas volver a permitir Tella después de cada compilación.
 
 ---
 
@@ -192,7 +209,8 @@ La única vez que se conecta a internet es para revisar, como máximo una vez al
 
 ```
 tella/
-├── Sources/main.swift      # la app (barra de menús + lógica)
+├── Sources/               # la app: WindowFocus.swift (qué ventana recibe el teclado),
+│                          #   AppDelegate.swift (menú), Updates.swift, About.swift, Support.swift
 ├── Resources/
 │   ├── AppIcon.iconset/    # ícono de la app
 │   └── *.lproj/            # traducciones (36 idiomas)

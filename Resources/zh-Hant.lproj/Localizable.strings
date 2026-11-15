@@ -28,3 +28,4 @@
 "update.new.body" = "你目前的版本是 %@。請下載新版本並打開，然後將 Tella 拖到「應用程式」中以取代舊版本。";
 "update.download" = "下載";
 "update.later" = "稍後";
+"follow.menu" = "啟用指標下方的視窗";

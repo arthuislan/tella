@@ -28,3 +28,4 @@
 "update.new.body" = "Você tem a versão %@. Baixe a nova versão, abra o arquivo e arraste o Tella para Aplicativos para substituir a antiga.";
 "update.download" = "Baixar";
 "update.later" = "Depois";
+"follow.menu" = "Ativar janela sob o cursor";

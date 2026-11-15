@@ -2,6 +2,12 @@
 
 Each entry is written in English (EN), Português (PT) and Español (ES).
 
+## [1.4] — 2026-11-15
+
+- **EN:** **Windows under the cursor:** every window that nothing covers — floating on top of the others or side by side — becomes active as soon as the cursor enters it, with no click, on any display and desktop — and is released when the cursor leaves it for an empty spot. Windows partly behind another still need a click, and no window ever moves. New menu option **Activate Window Under Cursor** (on by default; off = classic behavior). When coming from another display, Tella now waits for the cursor to reach a window instead of picking one at the edge. Spotlight, Raycast and Alfred are no longer closed by a window switch. Tella now only works while the mouse moves (better for the battery) and runs on **Intel Macs** too. Rebuilding from source keeps the Accessibility permission when a signing certificate is available.
+- **PT:** **Janelas sob o cursor:** toda janela que nada cobre — flutuando por cima das outras ou lado a lado — fica ativa assim que o cursor entra nela, sem clique, em qualquer tela e mesa — e é solta quando o cursor sai dela para um espaço vazio. Janelas parcialmente atrás de outra continuam precisando de clique, e nenhuma janela muda de lugar. Nova opção no menu **Ativar janela sob o cursor** (ligada por padrão; desligada = comportamento clássico). Ao chegar de outra tela, o Tella agora espera o cursor chegar numa janela em vez de escolher na borda. Spotlight, Raycast e Alfred não são mais fechados por uma troca de janela. O Tella agora só trabalha enquanto o mouse se move (melhor para a bateria) e roda também em **Macs com Intel**. Compilar pelo código mantém a permissão de Acessibilidade quando há um certificado de assinatura.
+- **ES:** **Ventanas bajo el cursor:** toda ventana que nada tapa — flotando sobre las demás o lado a lado — queda activa en cuanto el cursor entra en ella, sin clic, en cualquier pantalla y escritorio — y se suelta cuando el cursor sale de ella hacia un espacio vacío. Las ventanas parcialmente detrás de otra siguen necesitando clic, y ninguna ventana cambia de lugar. Nueva opción en el menú **Activar ventana bajo el cursor** (activada por defecto; desactivada = comportamiento clásico). Al llegar desde otra pantalla, Tella ahora espera a que el cursor llegue a una ventana en lugar de elegir en el borde. Spotlight, Raycast y Alfred ya no se cierran por un cambio de ventana. Tella ahora solo trabaja mientras el mouse se mueve (mejor para la batería) y funciona también en **Macs con Intel**. Compilar desde el código mantiene el permiso de Accesibilidad cuando hay un certificado de firma.
+
 ## [1.3] — 2026-11-14
 
 - **EN:** New **About Tella** window with version, developer, website and license. Tella now checks GitHub once a day for new versions and shows **Update Available** in the menu (can be turned off with **Check for Updates Automatically**). New **Check for Updates…** option. The DMG installer now shows the Applications shortcut as "Applications" for everyone.
@@ -38,5 +44,6 @@ Each entry is written in English (EN), Português (PT) and Español (ES).
 - **PT:** Ativa a janela da frente ao trocar de monitor, sem clique, e ativa a janela de trás ao minimizar.
 - **ES:** Activa la ventana del frente al cambiar de pantalla, sin clic, y activa la ventana de atrás al minimizar.
 
+[1.4]: https://github.com/arthuislan/tella/releases/tag/v1.4
 [1.3]: https://github.com/arthuislan/tella/releases/tag/v1.3
 [1.2]: https://github.com/arthuislan/tella/releases/tag/v1.2

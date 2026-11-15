@@ -28,3 +28,4 @@
 "update.new.body" = "Tienes la versión %@. Descarga la nueva versión, ábrela y arrastra Tella a Aplicaciones para reemplazar la anterior.";
 "update.download" = "Descargar";
 "update.later" = "Más tarde";
+"follow.menu" = "Activar ventana bajo el cursor";

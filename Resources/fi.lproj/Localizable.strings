@@ -28,3 +28,4 @@
 "update.new.body" = "Sinulla on versio %@. Lataa uusi versio, avaa se ja vedä Tella Ohjelmat-kansioon korvataksesi vanhan.";
 "update.download" = "Lataa";
 "update.later" = "Myöhemmin";
+"follow.menu" = "Aktivoi osoittimen alla oleva ikkuna";

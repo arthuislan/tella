@@ -28,3 +28,4 @@
 "update.new.body" = "Ai versiunea %@. Descarcă noua versiune, deschide-o și trage Tella în Aplicații pentru a o înlocui pe cea veche.";
 "update.download" = "Descarcă";
 "update.later" = "Mai târziu";
+"follow.menu" = "Activează fereastra de sub cursor";

@@ -28,3 +28,4 @@
 "update.new.body" = "Máte verziu %@. Stiahnite novú verziu, otvorte ju a presuňte Tella do priečinka Aplikácie, aby nahradila starú.";
 "update.download" = "Stiahnuť";
 "update.later" = "Neskôr";
+"follow.menu" = "Aktivovať okno pod ukazovateľom";

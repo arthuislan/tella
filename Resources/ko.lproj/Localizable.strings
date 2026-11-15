@@ -28,3 +28,4 @@
 "update.new.body" = "현재 버전은 %@입니다. 새 버전을 다운로드하여 열고 Tella를 응용 프로그램으로 드래그해 이전 버전을 교체하십시오.";
 "update.download" = "다운로드";
 "update.later" = "나중에";
+"follow.menu" = "포인터 아래의 윈도우 활성화";

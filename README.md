@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/arthuislan/tella/releases/download/v1.3/Tella-1.3.dmg"><b>⬇︎ Download Tella 1.3</b></a>
-  &nbsp;·&nbsp; macOS 13+ · Apple Silicon
+  <a href="https://github.com/arthuislan/tella/releases/download/v1.4/Tella-1.4.dmg"><b>⬇︎ Download Tella 1.4</b></a>
+  &nbsp;·&nbsp; macOS 13+ · Apple Silicon & Intel
 </p>
 
 <p align="center">
@@ -59,21 +59,35 @@ With Tella on, when the cursor enters another display, the app activates the **w
 
 ## How it works
 
-1. Every 30 ms, Tella checks which display the cursor is on.
-2. When the cursor **changes display**, it waits a moment (0.12 s) to make sure you really stayed there.
-3. It finds the **frontmost** window on that display and activates it, together with its app, through the macOS Accessibility API.
+### Coming from another display
 
-Built-in safeguards:
+1. When the cursor **changes display**, Tella waits until it reaches a window, so it never picks a window before you get there.
+2. If the cursor enters a window that **nothing covers**, that window becomes active.
+3. Anywhere else (menu bar, desktop, or a window partly behind another), nothing changes: a window only becomes active when the cursor chooses it.
 
-- **Dragging something between displays?** If the mouse button is held down, Tella does nothing, so it never interrupts a drag.
-- **Plugged or unplugged a display?** Tella just updates its reference and activates nothing.
-- **No windows on that display?** It does nothing.
+### Windows under the cursor
+
+With **Activate Window Under Cursor** on (the default), every window that **nothing covers** — floating on top of the others or side by side, like Finder on the left and Terminal on the right — becomes active as soon as the cursor enters it. No click needed, on the MacBook, on the external display and on every desktop (Space).
+
+When the cursor **leaves** that window for an empty spot — the desktop, or a window in the back like the space between Finder and Terminal — the window is **released**: no window stays active until the cursor chooses another one, so nothing you type goes to the wrong place. The menu bar, menus and the Dock don't count, so you can still reach the active app's menus.
+
+A window that is **partly behind another one** is never activated by the cursor: activating it would bring it forward and cover the window in front. For those, you click, as always. No window ever moves or changes order.
+
+Turn **Activate Window Under Cursor** off to get the classic behavior: Tella only acts when the cursor changes display, always activating the frontmost window there.
 
 ### When you minimize a window
 
 If you minimize the window you were using, Tella **immediately** activates the window that is now in front on that display — usually the one that was behind it — so you can keep typing without clicking.
 
-> **Note:** Tella only acts **when the cursor changes display or when you minimize a window**. Everything else works as usual: to switch windows on the same display, you click as always.
+### Built-in safeguards
+
+- **Dragging something?** While a mouse button is held down, Tella does nothing, so it never interrupts a drag.
+- **Spotlight, Raycast, Alfred and similar panels:** while one is open, Tella doesn't switch windows, so it never closes them.
+- **Menus, the Dock and alerts under the cursor:** Tella ignores them.
+- **Plugged or unplugged a display?** Tella just updates its reference and activates nothing.
+- **Battery friendly:** Tella only works while the mouse is moving.
+
+Everything goes through the macOS Accessibility API.
 
 ---
 
@@ -84,6 +98,7 @@ If you minimize the window you were using, Tella **immediately** activates the w
 | **About Tella** | Shows the version, the developer, the website and the license. |
 | **Update Available: Tella x.y** | Appears only when there is a new version. Click to download it. |
 | **Enabled** | Turns Tella on or off without quitting the app. |
+| **Activate Window Under Cursor** | Windows that nothing covers become active when the cursor enters them (on by default). Off = classic behavior. |
 | **Open at Login** | Starts Tella automatically when you log in. |
 | **Permission** | Shows whether Accessibility is allowed (✓) or missing (⚠︎) and groups the options below. |
 | ↳ **Open Accessibility Settings…** | Opens the Accessibility list in System Settings. |
@@ -111,7 +126,7 @@ To use Tella in a different language without changing your whole Mac, go to **Sy
 ## Requirements
 
 - macOS 13 (Ventura) or later
-- Mac with Apple Silicon (M1, M2, M3, M4…)
+- Mac with Apple Silicon (M1, M2, M3, M4…) or Intel
 - **Accessibility** permission, which Tella needs to activate other apps' windows
 
 ---
@@ -120,7 +135,7 @@ To use Tella in a different language without changing your whole Mac, go to **Sy
 
 ### With the installer (DMG)
 
-1. Download **[Tella-1.3.dmg](https://github.com/arthuislan/tella/releases/download/v1.3/Tella-1.3.dmg)** from the [Releases](https://github.com/arthuislan/tella/releases) page.
+1. Download **[Tella-1.4.dmg](https://github.com/arthuislan/tella/releases/download/v1.4/Tella-1.4.dmg)** from the [Releases](https://github.com/arthuislan/tella/releases) page.
 2. Open the DMG and drag **Tella** into the **Applications** folder.
 3. Open Tella. Because the app is not notarized by Apple, macOS may say it can't verify the developer the first time. To open it anyway, go to **System Settings → Privacy & Security** and click **Open Anyway**, or right-click the app and choose **Open**.
 4. When Tella asks, turn on its permission in **System Settings → Privacy & Security → Accessibility**.
@@ -135,6 +150,8 @@ cd tella
 ./build.sh --install   # build, install to /Applications and open
 ./build.sh --dmg       # build and create the Tella-x.y.dmg installer
 ```
+
+`build.sh` builds a universal app (Apple Silicon + Intel). If your keychain has a code-signing certificate (or you set `TELLA_SIGN_ID`), it signs with it, so macOS keeps the Accessibility permission every time you rebuild. Without one, you may need to allow Tella again after each build.
 
 ---
 
@@ -192,7 +209,8 @@ The only time it goes online is to check the public Tella releases page on GitHu
 
 ```
 tella/
-├── Sources/main.swift      # the app (menu bar + logic)
+├── Sources/               # the app: WindowFocus.swift (which window gets the keyboard),
+│                          #   AppDelegate.swift (menu), Updates.swift, About.swift, Support.swift
 ├── Resources/
 │   ├── AppIcon.iconset/    # app icon
 │   └── *.lproj/            # translations (36 languages)

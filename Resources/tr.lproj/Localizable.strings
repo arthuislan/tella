@@ -28,3 +28,4 @@
 "update.new.body" = "%@ sürümünü kullanıyorsunuz. Yeni sürümü indirin, açın ve eskisinin yerine geçmesi için Tella'yı Uygulamalar'a sürükleyin.";
 "update.download" = "İndir";
 "update.later" = "Daha sonra";
+"follow.menu" = "İmlecin altındaki pencereyi etkinleştir";

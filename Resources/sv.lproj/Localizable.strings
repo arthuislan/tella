@@ -28,3 +28,4 @@
 "update.new.body" = "Du har version %@. Hämta den nya versionen, öppna den och dra Tella till Program för att ersätta den gamla.";
 "update.download" = "Hämta";
 "update.later" = "Senare";
+"follow.menu" = "Aktivera fönstret under pekaren";

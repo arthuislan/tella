@@ -28,3 +28,4 @@
 "update.new.body" = "Du har versjon %@. Last ned den nye versjonen, åpne den og dra Tella til Programmer for å erstatte den gamle.";
 "update.download" = "Last ned";
 "update.later" = "Senere";
+"follow.menu" = "Aktiver vinduet under pekeren";

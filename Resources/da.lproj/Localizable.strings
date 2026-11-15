@@ -28,3 +28,4 @@
 "update.new.body" = "Du har version %@. Hent den nye version, åbn den, og træk Tella til Programmer for at erstatte den gamle.";
 "update.download" = "Hent";
 "update.later" = "Senere";
+"follow.menu" = "Aktivér vinduet under markøren";
