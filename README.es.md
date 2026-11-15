@@ -47,13 +47,17 @@ La solución sería hacer clic en la otra pantalla antes de escribir. El problem
 
 ## La solución
 
-Con Tella encendido, cuando el cursor entra en otra pantalla, la app activa la **ventana que ya está al frente en esa pantalla**. No importa dónde cayó el cursor.
+Con Tella encendido, el teclado sigue al cursor. Una ventana que **nada cubre** — flotando encima o lado a lado — se activa en cuanto el cursor entra en ella, en cualquier pantalla y en cualquier escritorio.
 
-- ✅ El teclado sigue al cursor: solo cambia de pantalla y escribe.
+- ✅ El teclado sigue al cursor: solo apunta y escribe.
 - ✅ No se simula ningún clic, así que ningún botón o enlace se activa por accidente.
 - ✅ Ninguna ventana cambia de lugar, y la de atrás se queda atrás.
 
-![Con Tella: la ventana del frente se activa sola, sin clic](docs/images/3-with-tella.png)
+![Con Tella: la ventana se activa cuando el cursor entra, sin clic](docs/images/3-with-tella-activate.png)
+
+Cuando el cursor sale a un espacio vacío (el escritorio o una ventana de atrás), el teclado queda **libre**: ninguna ventana queda activa, así que nada de lo que escribes va al lugar equivocado.
+
+![Con Tella: al salir a un espacio vacío, el teclado queda libre](docs/images/4-with-tella-release.png)
 
 ---
 
@@ -128,6 +132,8 @@ Para usar Tella en otro idioma sin cambiar todo tu Mac, ve a **Ajustes del Siste
 - macOS 13 (Ventura) o posterior
 - Mac con Apple Silicon (M1, M2, M3, M4…) o Intel
 - Permiso de **Accesibilidad**, que Tella necesita para activar ventanas de otras apps
+
+![Una app, dos procesadores: Apple Silicon e Intel](docs/images/5-universal.png)
 
 ---
 

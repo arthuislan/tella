@@ -47,13 +47,17 @@ A solução seria clicar na outra tela antes de digitar. O problema é que o cur
 
 ## A solução
 
-Com o Tella ligado, quando o cursor entra em outra tela, o app ativa a **janela que já está na frente naquela tela**. Ele não usa o lugar onde o cursor caiu.
+Com o Tella ligado, o teclado acompanha o cursor. Uma janela que **nada cobre** — flutuando por cima ou lado a lado — fica ativa assim que o cursor entra nela, em qualquer tela e em qualquer mesa.
 
-- ✅ O teclado acompanha o cursor: é só mudar de tela e digitar.
+- ✅ O teclado acompanha o cursor: é só apontar e digitar.
 - ✅ Nenhum clique é simulado, então nenhum botão ou link é acionado sem querer.
 - ✅ Nenhuma janela muda de lugar, e a de trás continua atrás.
 
-![Com o Tella: a janela da frente é ativada sozinha, sem clique](docs/images/3-with-tella.png)
+![Com o Tella: a janela fica ativa quando o cursor entra, sem clique](docs/images/3-with-tella-activate.png)
+
+Quando o cursor sai para um vão (a mesa ou uma janela de trás), o teclado é **solto**: nenhuma janela fica ativa, então nada do que você digita vai para o lugar errado.
+
+![Com o Tella: ao sair para um vão, o teclado fica livre](docs/images/4-with-tella-release.png)
 
 ---
 
@@ -128,6 +132,8 @@ Para usar o Tella em outro idioma sem mudar o Mac inteiro, vá em **Ajustes do S
 - macOS 13 (Ventura) ou mais novo
 - Mac com Apple Silicon (M1, M2, M3, M4…) ou Intel
 - Permissão de **Acessibilidade**, que o Tella precisa para ativar janelas de outros apps
+
+![Um app, dois processadores: Apple Silicon e Intel](docs/images/5-universal.png)
 
 ---
 

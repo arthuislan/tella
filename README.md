@@ -47,13 +47,17 @@ The workaround is to click the other display before typing. But the cursor often
 
 ## The solution
 
-With Tella on, when the cursor enters another display, the app activates the **window that is already in front on that display**. It does not care where the cursor landed.
+With Tella on, the keyboard follows the cursor. A window that **nothing covers** — floating on top or side by side — becomes active as soon as the cursor enters it, on any display and any desktop.
 
-- ✅ The keyboard follows the cursor: just switch displays and type.
+- ✅ The keyboard follows the cursor: just point and type.
 - ✅ No click is simulated, so no button or link is ever pressed by accident.
 - ✅ No window moves, and the window in the back stays in the back.
 
-![With Tella: the front window is activated on its own, no click](docs/images/3-with-tella.png)
+![With Tella: the window becomes active when the cursor enters it, no click](docs/images/3-with-tella-activate.png)
+
+When the cursor leaves for an empty spot (the desktop or a window in the back), the keyboard is **released**: no window stays active, so nothing you type lands in the wrong place.
+
+![With Tella: moving into a gap releases the keyboard](docs/images/4-with-tella-release.png)
 
 ---
 
@@ -128,6 +132,8 @@ To use Tella in a different language without changing your whole Mac, go to **Sy
 - macOS 13 (Ventura) or later
 - Mac with Apple Silicon (M1, M2, M3, M4…) or Intel
 - **Accessibility** permission, which Tella needs to activate other apps' windows
+
+![One app, two processors: Apple Silicon and Intel](docs/images/5-universal.png)
 
 ---
 
