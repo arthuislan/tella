@@ -169,19 +169,6 @@ Informe completo, con cómo se midió y cómo comprobarlo tú mismo: **[docs/DES
 3. Abre Tella. Como la app no está notarizada por Apple, la primera vez macOS puede avisar que no puede verificar al desarrollador. Para abrirla de todos modos, ve a **Ajustes del Sistema → Privacidad y seguridad → Abrir de todos modos**, o haz clic derecho en la app y elige **Abrir**.
 4. Cuando Tella lo pida, activa el permiso en **Ajustes del Sistema → Privacidad y seguridad → Accesibilidad**.
 
-### Compilar desde el código
-
-Necesitas las herramientas de línea de comandos de Xcode (`xcode-select --install`).
-
-```bash
-git clone https://github.com/arthuislan/tella.git
-cd tella
-./build.sh --install   # compila, instala en /Applications y abre
-./build.sh --dmg       # compila y crea el instalador Tella-x.y.dmg
-```
-
-`build.sh` genera una app universal (Apple Silicon + Intel). Si tu llavero tiene un certificado de firma de código (o defines `TELLA_SIGN_ID`), firma con él y macOS mantiene el permiso de Accesibilidad en cada compilación. Sin certificado, quizá debas volver a permitir Tella después de cada compilación.
-
 ---
 
 ## Solución de problemas
@@ -234,27 +221,12 @@ La única vez que se conecta a internet es para revisar, como máximo una vez al
 
 ---
 
-## Estructura del proyecto
-
-```
-tella/
-├── Sources/               # la app: WindowFocus.swift (qué ventana recibe el teclado),
-│                          #   AppDelegate.swift (menú), Updates.swift, About.swift, Support.swift
-├── Resources/
-│   ├── AppIcon.iconset/    # ícono de la app
-│   └── *.lproj/            # traducciones (36 idiomas)
-├── Info.plist
-├── build.sh                # compilar, instalar y crear el DMG
-├── RELEASING.md            # cómo publicar una versión nueva
-└── docs/
-    ├── images/             # imágenes de este README
-    └── src/gen.py          # script que genera las ilustraciones
-```
-
-El historial de versiones está en [CHANGELOG.md](CHANGELOG.md).
+Consulta el [CHANGELOG.md](CHANGELOG.md) para ver el historial de versiones.
 
 ---
 
 ## Licencia
 
-[MIT](LICENSE) © 2026 Arthuislan
+**Gratuito, todos los derechos reservados** © 2026 Arthuislan. Tella es gratis para uso personal y profesional, pero no es de código abierto: no se permite copiarla, modificarla, redistribuirla ni aplicarle ingeniería inversa sin autorización. Términos completos en [LICENSE](LICENSE).
+
+Las versiones hasta la 1.5 se publicaron bajo la Licencia MIT.

@@ -169,19 +169,6 @@ Full report, with how it was measured and how to check it yourself: **[docs/DESE
 3. Open Tella. Because the app is not notarized by Apple, macOS may say it can't verify the developer the first time. To open it anyway, go to **System Settings → Privacy & Security** and click **Open Anyway**, or right-click the app and choose **Open**.
 4. When Tella asks, turn on its permission in **System Settings → Privacy & Security → Accessibility**.
 
-### Building from source
-
-You need the Xcode Command Line Tools (`xcode-select --install`).
-
-```bash
-git clone https://github.com/arthuislan/tella.git
-cd tella
-./build.sh --install   # build, install to /Applications and open
-./build.sh --dmg       # build and create the Tella-x.y.dmg installer
-```
-
-`build.sh` builds a universal app (Apple Silicon + Intel). If your keychain has a code-signing certificate (or you set `TELLA_SIGN_ID`), it signs with it, so macOS keeps the Accessibility permission every time you rebuild. Without one, you may need to allow Tella again after each build.
-
 ---
 
 ## Troubleshooting
@@ -234,27 +221,12 @@ The only time it goes online is to check the public Tella releases page on GitHu
 
 ---
 
-## Project structure
-
-```
-tella/
-├── Sources/               # the app: WindowFocus.swift (which window gets the keyboard),
-│                          #   AppDelegate.swift (menu), Updates.swift, About.swift, Support.swift
-├── Resources/
-│   ├── AppIcon.iconset/    # app icon
-│   └── *.lproj/            # translations (36 languages)
-├── Info.plist
-├── build.sh                # build, install and create the DMG
-├── RELEASING.md            # how to publish a new version
-└── docs/
-    ├── images/             # images used in this README
-    └── src/gen.py          # script that generates the illustrations
-```
-
 See [CHANGELOG.md](CHANGELOG.md) for the version history.
 
 ---
 
 ## License
 
-[MIT](LICENSE) © 2026 Arthuislan
+**Free to use, all rights reserved** © 2026 Arthuislan. Tella is free of charge for personal and professional use, but it is not open source: copying, modifying, redistributing or reverse engineering it is not allowed without permission. Full terms in [LICENSE](LICENSE).
+
+Versions up to 1.5 were released under the MIT License.

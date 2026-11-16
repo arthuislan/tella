@@ -1,21 +1,121 @@
-MIT License
+TELLA — LICENÇA DE USO GRATUITO · FREEWARE LICENSE · LICENCIA DE USO GRATUITO
 
-Copyright (c) 2026 Arthuislan
+Copyright © 2026 Arthuislan. Todos os direitos reservados. All rights reserved. Todos los derechos reservados.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+================================================================================
+PORTUGUÊS
+================================================================================
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+O Tella é um software gratuito, mas não é de código aberto. Ao instalar ou usar
+o Tella, você concorda com estes termos.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+1. VOCÊ PODE
+   a) baixar, instalar e usar o Tella gratuitamente, em quantos Macs quiser,
+      para uso pessoal ou profissional;
+   b) indicar o Tella a outras pessoas pelo link oficial do projeto:
+      https://github.com/arthuislan/tella
+
+2. VOCÊ NÃO PODE, sem autorização por escrito de Arthuislan
+   a) copiar, modificar, adaptar, traduzir ou criar obras derivadas do Tella
+      ou do seu código;
+   b) fazer engenharia reversa, descompilar ou desmontar o Tella, exceto
+      quando a lei aplicável permitir expressamente;
+   c) redistribuir, revender, alugar, sublicenciar ou incluir o Tella em
+      outro produto ou pacote;
+   d) remover ou alterar os avisos de autoria, o nome "Tella" ou o ícone;
+   e) usar o nome "Tella", o ícone ou a identidade visual do projeto em
+      outro software ou serviço.
+
+3. PROPRIEDADE
+   O Tella, o seu código, o nome, o ícone, as imagens e a documentação
+   pertencem a Arthuislan. Esta licença dá a você o direito de usar o
+   programa; ela não transfere nenhuma propriedade.
+
+4. SEM GARANTIA
+   O Tella é fornecido "no estado em que se encontra", sem garantia de
+   nenhum tipo. Arthuislan não se responsabiliza por danos decorrentes do
+   uso ou da impossibilidade de uso do Tella, na máxima extensão permitida
+   pela lei.
+
+5. VERSÕES ANTERIORES
+   As versões 1.5 e anteriores foram publicadas sob a Licença MIT e
+   continuam disponíveis nesses termos. Esta licença vale para a versão 1.6
+   e todas as posteriores.
+
+================================================================================
+ENGLISH
+================================================================================
+
+Tella is free software in the sense of free of charge, but it is not open
+source. By installing or using Tella, you agree to these terms.
+
+1. YOU MAY
+   a) download, install and use Tella free of charge, on as many Macs as you
+      like, for personal or professional use;
+   b) recommend Tella to others through the project's official link:
+      https://github.com/arthuislan/tella
+
+2. YOU MAY NOT, without written permission from Arthuislan
+   a) copy, modify, adapt, translate or create derivative works of Tella or
+      its code;
+   b) reverse engineer, decompile or disassemble Tella, except where
+      applicable law expressly permits it;
+   c) redistribute, resell, rent, sublicense or bundle Tella with another
+      product or package;
+   d) remove or alter the authorship notices, the name "Tella" or the icon;
+   e) use the name "Tella", the icon or the project's visual identity in
+      another software or service.
+
+3. OWNERSHIP
+   Tella, its code, name, icon, images and documentation belong to
+   Arthuislan. This license grants you the right to use the program; it does
+   not transfer any ownership.
+
+4. NO WARRANTY
+   Tella is provided "as is", without warranty of any kind. To the maximum
+   extent permitted by law, Arthuislan is not liable for any damages arising
+   from the use of, or inability to use, Tella.
+
+5. EARLIER VERSIONS
+   Versions 1.5 and earlier were released under the MIT License and remain
+   available under those terms. This license applies to version 1.6 and all
+   later versions.
+
+================================================================================
+ESPAÑOL
+================================================================================
+
+Tella es un software gratuito, pero no es de código abierto. Al instalar o
+usar Tella, aceptas estos términos.
+
+1. PUEDES
+   a) descargar, instalar y usar Tella gratis, en todas las Mac que quieras,
+      para uso personal o profesional;
+   b) recomendar Tella a otras personas mediante el enlace oficial del
+      proyecto: https://github.com/arthuislan/tella
+
+2. NO PUEDES, sin autorización por escrito de Arthuislan
+   a) copiar, modificar, adaptar, traducir ni crear obras derivadas de Tella
+      o de su código;
+   b) aplicar ingeniería inversa, descompilar ni desensamblar Tella, salvo
+      cuando la ley aplicable lo permita expresamente;
+   c) redistribuir, revender, alquilar, sublicenciar ni incluir Tella en
+      otro producto o paquete;
+   d) quitar ni alterar los avisos de autoría, el nombre "Tella" ni el ícono;
+   e) usar el nombre "Tella", el ícono ni la identidad visual del proyecto en
+      otro software o servicio.
+
+3. PROPIEDAD
+   Tella, su código, nombre, ícono, imágenes y documentación pertenecen a
+   Arthuislan. Esta licencia te da el derecho de usar el programa; no
+   transfiere ninguna propiedad.
+
+4. SIN GARANTÍA
+   Tella se ofrece "tal cual", sin garantía de ningún tipo. En la máxima
+   medida permitida por la ley, Arthuislan no se hace responsable de daños
+   derivados del uso o de la imposibilidad de usar Tella.
+
+5. VERSIONES ANTERIORES
+   Las versiones 1.5 y anteriores se publicaron bajo la Licencia MIT y
+   siguen disponibles en esos términos. Esta licencia se aplica a la versión
+   1.6 y a todas las posteriores.
