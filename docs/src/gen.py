@@ -350,7 +350,7 @@ links = f'''<svg class="ov" width="1280" height="720"><defs>
 pages["5-universal"] = (page(
     f'<div style="position:absolute;left:64px;top:52px;right:64px">'
     f'<span class="badge" style="background:#9C8CFF22;color:#B9AEFF;box-shadow:inset 0 0 0 1px #9C8CFF55">'
-    f'<span class="dot" style="background:#9C8CFF;box-shadow:0 0 12px #9C8CFF"></span>NOVO NA 1.4<span class="sep">|</span><span class="b">NEW IN 1.4</span></span>'
+    f'<span class="dot" style="background:#9C8CFF;box-shadow:0 0 12px #9C8CFF"></span>COMPATIBILIDADE NATIVA<span class="sep">|</span><span class="b">NATIVE COMPATIBILITY</span></span>'
     f'<div class="h1" style="margin-top:20px">Um app, dois processadores</div><div class="h1en">{en("One app, two processors")}</div>'
     f'<div class="sub">O mesmo instalador roda nativo em Macs com Apple Silicon e com Intel. Sem Rosetta, sem versões separadas.</div>'
     f'<div class="suben">{en("The same installer runs natively on Apple Silicon and Intel Macs. No Rosetta, no separate builds.")}</div></div>'
@@ -462,7 +462,7 @@ pages["6-performance"] = (page(
     + why(576, "off", AMBER, "Nada roda entre um brilho e outro", "Nothing runs between one glow and the next")
     + '<div class="footer"><div class="brand"><img src="data:image/png;base64,' + ICON_B64 + '">Tella <span>para macOS</span></div>'
       '<div class="chips"><span class="chip">Monitor de Atividade do macOS · macOS Activity Monitor</span>'
-      '<span class="chip">MacBook Pro · nov 2026</span></div></div>', 1280, 720), (1280, 720))
+      '</div></div>', 1280, 720), (1280, 720))
 
 with sync_playwright() as p:
     b = p.chromium.launch()
