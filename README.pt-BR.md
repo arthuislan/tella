@@ -137,6 +137,29 @@ Para usar o Tella em outro idioma sem mudar o Mac inteiro, vá em **Ajustes do S
 
 ---
 
+## Desempenho
+
+O Tella fica ligado o dia inteiro, por isso foi feito para ser invisível para a bateria. Medido no Monitor de Atividade do macOS, num MacBook Pro em uso normal (Tella 1.6 beta):
+
+| Recurso | Tella |
+|---|---|
+| **CPU** | 0,2% – 0,3% |
+| **GPU** | 0,0% fora da animação da Borda de Foco |
+| **Impacto energético** | 0,0 agora · 1,44 na média de 12 horas |
+| **Disco e rede** | 0 bytes |
+
+No mesmo instante, o próprio Monitor de Atividade usava **2,6%** de CPU, cerca de **9 vezes mais** que o Tella.
+
+- **Orientado a eventos:** o Tella escuta o movimento do mouse e dorme enquanto o mouse está parado. Ele nunca fica consultando o sistema em repetição.
+- **Borda de Foco animada pela GPU** *(chega no Tella 1.6)*: a luz é uma imagem pequena e pronta, que o macOS estica até o tamanho da janela e anima com o Core Animation. Nada fica rodando entre um brilho e outro.
+- **Sem disco nem rede no dia a dia:** os ajustes só são gravados quando você muda alguma coisa, e a conferência de atualização acontece uma vez por dia (dá para desligar).
+
+![Leve de verdade: 0,3% de CPU, 0% de GPU, impacto energético 0,0, nada de disco ou rede](docs/images/6-performance.png)
+
+Relatório completo, com a forma de medir e como conferir você mesmo: **[docs/DESEMPENHO.md](docs/DESEMPENHO.md)**.
+
+---
+
 ## Instalação
 
 ### Pelo instalador (DMG)

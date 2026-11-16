@@ -137,6 +137,29 @@ To use Tella in a different language without changing your whole Mac, go to **Sy
 
 ---
 
+## Performance
+
+Tella stays on all day, so it was built to be invisible to your battery. Measured with macOS Activity Monitor on a MacBook Pro in everyday use (Tella 1.6 beta):
+
+| Resource | Tella |
+|---|---|
+| **CPU** | 0.2% – 0.3% |
+| **GPU** | 0.0% outside the Focus Border animation |
+| **Energy impact** | 0.0 now · 1.44 over the last 12 hours |
+| **Disk and network** | 0 bytes |
+
+At the same moment, Activity Monitor itself was using **2.6%** of the CPU, about **9 times more** than Tella.
+
+- **Event-driven:** Tella listens to mouse movement and sleeps while the mouse is still. It never polls the system in a loop.
+- **GPU-animated Focus Border** *(coming in Tella 1.6)*: the glow is a small pre-rendered image that macOS stretches to the window and animates with Core Animation. Nothing keeps running between one glow and the next.
+- **No disk or network in daily use:** settings are written only when you change them, and the update check runs once a day (you can turn it off).
+
+![Truly lightweight: 0.3% CPU, 0% GPU, 0.0 energy impact, no disk or network](docs/images/6-performance.png)
+
+Full report, with how it was measured and how to check it yourself: **[docs/DESEMPENHO.md](docs/DESEMPENHO.md)** (in Portuguese).
+
+---
+
 ## Installation
 
 ### With the installer (DMG)

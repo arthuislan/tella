@@ -1,6 +1,6 @@
 """Gera as ilustrações do README do Tella (HTML -> PNG em alta resolução).
 
-Uso:  python3 docs/src/gen.py docs/images
+Uso:  python3 docs/src/gen.py docs/images [nome ...]   (sem nomes: gera todas)
 Requer: playwright (chromium) e a fonte Inter.
 
 Todo texto em português traz, logo abaixo, a legenda em inglês.
@@ -15,7 +15,6 @@ HERE = pathlib.Path(__file__).resolve().parent
 ICON_B64 = base64.b64encode((HERE.parent / "images" / "icon.png").read_bytes()).decode()
 
 RED, GREEN, AMBER, BLUE = "#FF5A67", "#3DDC97", "#FFB547", "#6EA8FF"
-VERSION = "1.4"
 
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
@@ -168,7 +167,7 @@ def header(kind, pt, en_t, sub, sub_en, step=""):
 
 
 def footer():
-    return (f'<div class="footer"><div class="brand"><img src="data:image/png;base64,{ICON_B64}">Tella <span>{VERSION}</span></div>'
+    return (f'<div class="footer"><div class="brand"><img src="data:image/png;base64,{ICON_B64}">Tella <span>para macOS</span></div>'
             '<div class="chips"><span class="chip">Apple Silicon + Intel</span><span class="chip">macOS 13+</span>'
             '<span class="chip">36 idiomas · 36 languages</span></div></div>')
 
@@ -358,7 +357,7 @@ pages["5-universal"] = (page(
     + chip_card(96, "Apple Silicon", "M1 · M2 · M3 · M4<br>e mais novos<br><span style='font-size:12px;color:#8D93AC'>and newer</span>", "arm64", BLUE)
     + chip_card(854, "Intel", "Core i5 · i7 · i9<br>e outros<br><span style='font-size:12px;color:#8D93AC'>and others</span>", "x86_64", AMBER)
     + links + hub
-    + feat(64, "box", "#9C8CFF", "Um único arquivo: Tella-1.4.dmg", "One single file: Tella-1.4.dmg")
+    + feat(64, "box", "#9C8CFF", "Um único instalador (.dmg)", "One single installer (.dmg)")
     + feat(462, "mac", BLUE, "macOS 13 (Ventura) ou mais novo", "macOS 13 (Ventura) or later")
     + feat(860, "bolt", AMBER, "Leve na bateria", "Light on battery")
     + footer().replace('bottom:26px', 'bottom:22px'), 1280, 720), (1280, 720))
@@ -400,7 +399,7 @@ pages["cover"] = (page(
       <img src="data:image/png;base64,{ICON_B64}" style="width:150px;height:150px;display:block"></div>
     <div style="position:absolute;left:262px;top:84px;width:520px">
       <span class="badge" style="background:#3DDC971F;color:{GREEN};box-shadow:inset 0 0 0 1px #3DDC9740;font-size:12.5px">
-      <span class="dot" style="background:{GREEN};box-shadow:0 0 12px {GREEN}"></span>VERSÃO {VERSION}<span class="sep">|</span><span class="b">VERSION {VERSION}</span></span>
+      <span class="dot" style="background:{GREEN};box-shadow:0 0 12px {GREEN}"></span>APP NATIVO PARA macOS<span class="sep">|</span><span class="b">NATIVE macOS APP</span></span>
       <div class="disp" style="font-size:92px;font-weight:800;letter-spacing:-.04em;line-height:1;margin-top:14px">Tella</div>
     </div>
     <div style="position:absolute;left:72px;top:282px;width:680px">
@@ -412,9 +411,65 @@ pages["cover"] = (page(
     </div>''' + cover_art, 1280, 560), (1280, 560))
 
 
+
+# 6 — Desempenho: medido no Mac de verdade
+def metric(x, value, unit, pt, en_text, color, note_pt, note_en):
+    return f"""<div style="position:absolute;left:{x}px;top:282px;width:272px;height:150px;border-radius:22px;padding:22px 24px;
+ background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 24px 50px rgba(0,0,0,.3)">
+ <div style="font-size:12px;font-weight:700;letter-spacing:.1em;color:{color}">{pt}<span style="opacity:.55;margin-left:8px;color:#C9CEE3">{en_text}</span></div>
+ <div class="disp" style="margin-top:10px;font-size:50px;font-weight:800;letter-spacing:-.035em;line-height:1;
+  background:linear-gradient(180deg,#fff,{color});-webkit-background-clip:text;color:transparent">{value}<span style="font-size:24px;font-weight:700;margin-left:4px">{unit}</span></div>
+ <div style="font-size:13.5px;color:#C8CCDD;margin-top:12px">{note_pt}</div>
+ <div style="font-size:11.5px;margin-top:2px">{en(note_en)}</div></div>"""
+
+
+def bar(y, name, pct, label, color, glow):
+    w = max(6, 560 * pct / 3.0)
+    return f"""<div style="position:absolute;left:96px;top:{y}px;width:560px">
+ <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:650;margin-bottom:8px"><span>{name}</span><span style="color:{color}">{label}</span></div>
+ <div style="height:12px;border-radius:99px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)">
+ <div style="width:{w}px;height:12px;border-radius:99px;background:linear-gradient(90deg,{color}AA,{color});box-shadow:0 0 {glow}px {color}"></div></div></div>"""
+
+
+def why(y, ic, color, pt, en_text):
+    return (f'<div style="position:absolute;left:740px;top:{y}px;width:476px;display:flex;gap:14px;align-items:center">'
+            f'<span style="flex:none;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:{color}26">{icon(ic, color)}</span>'
+            f'<div><div style="font-size:14.5px;font-weight:650">{pt}</div><div style="font-size:12px;margin-top:2px">{en(en_text)}</div></div></div>')
+
+
+ICONS["wave"] = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{c}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>'
+ICONS["gpu"] = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{c}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>'
+ICONS["off"] = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{c}" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M6 18L18 6"/></svg>'
+
+pages["6-performance"] = (page(
+    f'<div style="position:absolute;left:64px;top:52px;right:64px">'
+    f'<span class="badge" style="background:{GREEN}1F;color:{GREEN};box-shadow:inset 0 0 0 1px {GREEN}40">'
+    f'<span class="dot" style="background:{GREEN};box-shadow:0 0 12px {GREEN}"></span>MEDIDO NUM MAC DE VERDADE<span class="sep">|</span><span class="b">MEASURED ON A REAL MAC</span></span>'
+    f'<div class="h1" style="margin-top:20px">Leve de verdade</div><div class="h1en">{en("Truly lightweight")}</div>'
+    f'<div class="sub">O Tella reage ao mouse e dorme no resto do tempo. Em uso normal, ele quase não aparece no Monitor de Atividade.</div>'
+    f'<div class="suben">{en("Tella reacts to the mouse and sleeps the rest of the time. In everyday use it barely shows up in Activity Monitor.")}</div></div>'
+    + metric(64, "0,3", "%", "CPU", "CPU", GREEN, "no máximo, em uso normal", "at most, in everyday use")
+    + metric(352, "0", "%", "GPU", "GPU", BLUE, "fora do instante do brilho", "outside the glow moment")
+    + metric(640, "0,0", "", "ENERGIA", "ENERGY", AMBER, "impacto energético agora", "current energy impact")
+    + metric(928, "0", "B", "DISCO E REDE", "DISK & NET", "#B9AEFF", "nada lido, gravado ou enviado", "nothing read, written or sent")
+    + f'<div style="position:absolute;left:64px;top:466px;width:624px;height:156px;border-radius:22px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px rgba(255,255,255,.09)">'
+      f'<div style="position:absolute;left:32px;top:18px;font-size:12px;font-weight:700;letter-spacing:.1em;color:#B9BED3">CPU NO MESMO MOMENTO'
+      f'<span style="opacity:.6;margin-left:8px">CPU AT THE SAME MOMENT</span></div></div>'
+    + bar(508, "Tella", 0.3, "0,3%", GREEN, 14)
+    + bar(564, "Monitor de Atividade · Activity Monitor", 2.6, "2,6%", "#8D93AC", 0)
+    + why(472, "wave", GREEN, "Só trabalha quando o mouse se move", "Works only while the mouse moves")
+    + why(524, "gpu", BLUE, "Borda de Foco animada pela GPU (Core Animation)", "Focus Border animated by the GPU (Core Animation)")
+    + why(576, "off", AMBER, "Nada roda entre um brilho e outro", "Nothing runs between one glow and the next")
+    + '<div class="footer"><div class="brand"><img src="data:image/png;base64,' + ICON_B64 + '">Tella <span>para macOS</span></div>'
+      '<div class="chips"><span class="chip">Monitor de Atividade do macOS · macOS Activity Monitor</span>'
+      '<span class="chip">MacBook Pro · nov 2026</span></div></div>', 1280, 720), (1280, 720))
+
 with sync_playwright() as p:
     b = p.chromium.launch()
+    only = set(sys.argv[2:])
     for name, (html, (w, h)) in pages.items():
+        if only and name not in only:
+            continue
         pg = b.new_page(viewport={"width": w, "height": h}, device_scale_factor=2)
         pg.set_content(html)
         pg.wait_for_timeout(300)
